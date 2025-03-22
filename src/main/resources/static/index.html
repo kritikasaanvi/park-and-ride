@@ -1,35 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Park and Ride | Login</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <title>Park & Ride - Smart Travel</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Bootstrap (optional) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f9fafb, #e2eafc);
+            color: #222;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #003049;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+        }
+
+        header nav a {
+            color: white;
+            margin-left: 1rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        header nav a:hover {
+            color: #ffc300;
+        }
+
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background: #ff6f00;
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(255, 111, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #ff8800;
+            transform: scale(1.05);
+        }
+
+        /* 🏎️ CRAZY TOY CAR */
+        .car-animation {
+            position: absolute;
+            bottom: -40px;
+            left: -200px;
+            width: 120px;
+            animation: drive 10s linear infinite;
+            z-index: 1;
+            transform: scaleX(-1); /* ✅ flip so it faces right */
+        }
+
+        @keyframes drive {
+            0% {
+                left: -150px;
+            }
+            100% {
+                left: 110%;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .car-animation {
+                width: 80px;
+                animation-duration: 8s;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<div class="container">
-    <h1>Park and Ride</h1>
+<header>
+    <h1><i class="fas fa-parking"></i> Park & Ride</h1>
+    <nav>
+        <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+        <a href="register.html"><i class="fas fa-user-plus"></i> Register</a>
+    </nav>
+</header>
 
-    <!-- Login Form -->
-    <h2>Login</h2>
-    <form id="loginForm">
-        <input type="text" id="loginEmail" placeholder="Email" required />
-        <input type="password" id="loginPassword" placeholder="Password" required />
-        <button type="submit">Login</button>
-    </form>
+<section class="hero">
+    <h2>Seamless Parking + Instant Last-Mile Connectivity</h2>
+    <p>Pre-book your parking, get instant cab suggestions. Avoid traffic chaos.</p>
+    <a href="register.html" class="cta-button">🚀 Get Started</a>
 
-    <hr>
+    <!-- 🎉 Animated Toy Car -->
+    <img src="https://cdn-icons-png.flaticon.com/512/744/744465.png" alt="Toy Car" class="car-animation">
+</section>
 
-    <!-- Register Form -->
-    <h2>Register</h2>
-    <form id="registerForm">
-        <input type="text" id="registerEmail" placeholder="Email" required />
-        <input type="password" id="registerPassword" placeholder="Password" required />
-        <button type="submit">Register</button>
-    </form>
-
-    <p id="message"></p>
-</div>
-
-<script src="js/main.js"></script>
+<script src="js/offline.js"></script>
 </body>
 </html>

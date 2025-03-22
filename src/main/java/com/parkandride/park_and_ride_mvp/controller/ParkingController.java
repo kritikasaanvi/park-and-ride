@@ -1,6 +1,7 @@
 package com.parkandride.park_and_ride_mvp.controller;
 
 import com.parkandride.park_and_ride_mvp.dto.BookingRequest;
+import com.parkandride.park_and_ride_mvp.dto.StationDTO;
 import com.parkandride.park_and_ride_mvp.entity.ParkingSlot;
 import com.parkandride.park_and_ride_mvp.service.ParkingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,17 @@ public class ParkingController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+    }
+
+    // ✅ Get list of available stations (mocked for now)
+    @GetMapping("/stations")
+    public ResponseEntity<List<StationDTO>> getStations() {
+        List<StationDTO> stations = List.of(
+                new StationDTO(1L, "Metro Station A"),
+                new StationDTO(2L, "Metro Station B"),
+                new StationDTO(3L, "Metro Station C")
+        );
+        return ResponseEntity.ok(stations);
     }
 
     // Cancel a parking slot booking
